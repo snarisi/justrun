@@ -13,17 +13,17 @@ import React, {
 	Navigator
 } from 'react-native';
 
-import Main from './components/main';
+import Main from './app/components/main';
 
 class justrun extends Component {
 	renderScene(route, navigator) {
 		return (
-				<route.component 
-					navigator={navigator} 
+				<route.component
+					navigator={navigator}
 					{...route.passProps} />
 		);
 	}
-  
+
 	render() {
     return (
       <Navigator

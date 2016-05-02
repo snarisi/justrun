@@ -8,6 +8,7 @@ import React, {
 } from 'react-native';
 
 import Run from './run';
+import state from '../store';
 import styles from '../assets/styles';
 
 export default class Start extends Component {
@@ -21,11 +22,11 @@ export default class Start extends Component {
 	watchID = (null: ?number)
 
 	componentDidMount() {
-		navigator.geolocation.getCurrentPosition(
-			pos => this.setState({ position: pos }), 
-			err => alert(err),
-			{enableHighAccuracy: true, maximumAge: 1000, timeout: 20000}
-		);
+		// navigator.geolocation.getCurrentPosition(
+		// 	pos => this.setState({ position: pos }),
+		// 	err => alert(err),
+		// 	{enableHighAccuracy: true, maximumAge: 1000, timeout: 20000}
+		// );
 
 		this.watchID = navigator.geolocation.watchPosition(
 			pos => this.setState({ position: pos }),
@@ -55,7 +56,7 @@ export default class Start extends Component {
 			<View style={styles.container} >
 				<Text>This is where you are:</Text>
 				<Text>{this.showPosition()}</Text>
-				<TouchableHighlight 
+				<TouchableHighlight
 					style={styles.button}
 					onPress={this.goToRun.bind(this)}>
 					<Text>Go</Text>
